@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "resend": "^6.1.2"
+  }
+}

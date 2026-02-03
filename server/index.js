@@ -6,13 +6,11 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 import connectDB from "./config/connectDB.js";
-
 import userRoutes from "./routes/user.route.js";
 import categoryRouter from "./routes/category.route.js";
 import uploadRouter from "./routes/upload.route.js";
 import subCategoryRouter from "./routes/subCategory.route.js";
 import productRouter from "./routes/product.route.js";
-
 
 
 const app = express()

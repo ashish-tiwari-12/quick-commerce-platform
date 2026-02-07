@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import Axios from '../src/utils/Axios';
 import SummaryApi from './common/SummaryApi';
 import { setAllCategory,setAllSubCategory, setLoadingCategory } from './store/productSlice';
-
+import GlobalProvider from './provider/GlobalProvider';
 function App() {
   const dispatch=useDispatch()
 
@@ -60,14 +60,14 @@ function App() {
   },[])
 
   return (
-    <>
+    <GlobalProvider>
     <Header/>
     <main className='min-h-[78vh]'>
       <Outlet/>
     </main>
     <Footer/>
     <Toaster/>
-    </>
+    </GlobalProvider>
   )
 }
 

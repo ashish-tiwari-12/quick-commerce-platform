@@ -1,6 +1,9 @@
+import { searchProduct } from "../../../server/controllers/product.controller"
 import { logout } from "../store/userSlice"
 
-export const baseURL = "http://localhost:5000"
+//  export const baseURL = import.meta.env.baseURL
+  export const baseURL ="http://localhost:5000"
+
 
 const SummaryApi = {
     register: {
@@ -86,7 +89,58 @@ const SummaryApi = {
     getProduct:{
         url:'/api/product/get',
         method:'post'
-    }
+    },
+    deleteProduct:{
+        url:'/api/product/delete-product',
+        method:'delete'
+    },
+        getProductByCategory : {
+        url : '/api/product/get-product-by-category',
+        method : 'post'
+    },
+        getCartItem : {
+        url : '/api/cart/get',
+        method : 'get'
+    },
+        addTocart : {
+        url : "/api/cart/create",
+        method : 'post'
+    },
+        getProductByCategoryAndSubCategory:{
+        url:'/api/product/get-pruduct-by-category-and-subcategory',
+        method:'post'
+    },
+     getProductDetails : {
+        url : '/api/product/get-product-details',
+        method : 'post'
+    },
+        updateProductDetails : {
+        url : "/api/product/update-product-details",
+        method : 'put'
+    },
+    searchProduct:{
+        url:'/api/product/search-product',
+        method:'post'
+    },
+   addTocart:{
+        url:"/api/cart/create",
+        method:'post'
+    },
+    getCartItems:{
+        url:'/api/cart/get',
+        method:'get'
+    },
+        updateCartItemQty : {
+        url : '/api/cart/update-qty',
+        method : 'put'
+    },
+    deleteCartItem : {
+        url : '/api/cart/delete-cart-item',
+        method : 'delete'
+    },
+
+
+
     
        
     

@@ -6,7 +6,7 @@ const auth = async(request,response,next)=>{
        
         if(!token){
             return response.status(401).json({
-                message : "Provide token"
+                message : "Please log in to continue",
             })
         }
         // console.log("token 🙄**"+token)

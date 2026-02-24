@@ -1,8 +1,8 @@
 import { searchProduct } from "../../../server/controllers/product.controller"
 import { logout } from "../store/userSlice"
 
-//  export const baseURL = import.meta.env.baseURL
-  export const baseURL ="http://localhost:5000"
+export const baseURL = import.meta.env.VITE_APP_URL
+//   export const baseURL ="http://localhost:5000"
 
 
 const SummaryApi = {
@@ -138,7 +138,34 @@ const SummaryApi = {
         url : '/api/cart/delete-cart-item',
         method : 'delete'
     },
-
+    createAddress : {
+        url : '/api/address/create',
+        method : 'post'
+    },
+    getAddress : {
+        url : '/api/address/get',
+        method : 'get'
+    },
+    updateAddress : {
+        url : '/api/address/update',
+        method : 'put'
+    },
+    disableAddress : {
+        url : '/api/address/disable',
+        method : 'delete'
+    },
+    CashOnDeliveryOrder : {
+        url : "/api/order/cash-on-delivery",
+        method : 'post'
+    },
+    payment_url : {
+        url : "/api/order/checkout",
+        method : 'post'
+    },
+    getOrderItems : {
+        url : '/api/order/order-list',
+        method : 'get'
+    }
 
 
     

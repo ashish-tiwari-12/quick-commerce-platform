@@ -1,4 +1,4 @@
-# Quick Commerce Platform (Zomato Clone)
+# Quick Commerce Platform (Blinkit Clone)
 
 A full-stack quick commerce platform built with the MERN stack (MongoDB, Express, React, Node.js). This project provides a comprehensive solution for managing orders, products, and user accounts with a modern, responsive user interface.
 

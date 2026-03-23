@@ -27,6 +27,7 @@ A full-stack quick commerce platform built with the MERN stack (MongoDB, Express
 
 ## Features
 
+- **Admin Dashboard:** Comprehensive admin controls for managing products, categories, sub-categories, inventory, and user orders.
 - **User Authentication:** Secure login and registration flows.
 - **Product Management:** Complete catalog handling and display.
 - **Shopping Cart & Checkout:** Seamless add-to-cart functionality.

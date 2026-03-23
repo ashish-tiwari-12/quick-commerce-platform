@@ -1,4 +1,3 @@
-import { searchProduct } from "../../../server/controllers/product.controller"
 import { logout } from "../store/userSlice"
 
 export const baseURL = import.meta.env.VITE_APP_URL

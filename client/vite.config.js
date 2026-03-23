@@ -8,4 +8,15 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
+  build: {
+    rollupOptions: {
+      external: ['mongoose'],
+    },
+  },
+  server: {
+    fs: {
+      // Restrict file access to the client directory
+      allow: ['.'],
+    },
+  },
 })

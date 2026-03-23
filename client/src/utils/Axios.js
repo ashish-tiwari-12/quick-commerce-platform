@@ -26,7 +26,7 @@ Axios.interceptors.request.use(
 
 //extend the life span of access token with 
 // the help refresh
-Axios.interceptors.request.use(
+Axios.interceptors.response.use(
     (response)=>{
         return response
     },

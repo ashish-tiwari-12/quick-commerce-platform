@@ -75,18 +75,11 @@ const CheckoutPage = () => {
 
       const { data: responseData } = response
 
-      // await stripePromise.redirectToCheckout({ sessionId : responseData.id })
-
-      const result = await stripePromise.redirectToCheckout({
-        sessionId: responseData.id,
-      })
-      console.log(responseData)
-
-
-      if (result.error) {
-        console.log("❌ Redirect Error:", result.error.message)
+      if (responseData.url) {
+        window.location.href = responseData.url;
+      } else {
+        console.log("Stripe Checkout Session URL not found", responseData);
       }
-
 
       if (fetchCartItem) {
         fetchCartItem()

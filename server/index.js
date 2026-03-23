@@ -14,6 +14,7 @@ import productRouter from "./routes/product.route.js";
 import cartRouter from "./routes/cart.route.js";
 import addressRouter from "./routes/address.route.js";
 import orderRouter from "./routes/order.route.js";
+import { webhookStripe } from "./controllers/order.controller.js";
 
 const app = express()
 app.use(cors({
@@ -39,6 +40,11 @@ app.use("/api/subcategory",subCategoryRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter)
 app.use("/api/address",addressRouter);
+
+// Set up raw body parsing for the webhook route specifically
+const rawBodyParser = express.raw({ type: 'application/json' });
+app.use('/api/order/webhook', rawBodyParser, webhookStripe)
+
 app.use("/api/order",orderRouter);
 
 connectDB().then(() => {

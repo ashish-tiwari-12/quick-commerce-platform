@@ -14,11 +14,15 @@ const CheckoutPage = () => {
   const { notDiscountTotalPrice, totalPrice, totalQty, fetchCartItem, fetchOrder } = useGlobalContext()
   const [openAddress, setOpenAddress] = useState(false)
   const addressList = useSelector(state => state.addresses.addressList)
-  const [selectAddress, setSelectAddress] = useState(0)
+  const [selectAddress, setSelectAddress] = useState(null)
   const cartItemsList = useSelector(state => state.cartItem.cart)
   const navigate = useNavigate()
 
   const handleCashOnDelivery = async () => {
+    if (selectAddress === null) {
+      toast.error("Please select an address")
+      return
+    }
     try {
       const response = await Axios({
         ...SummaryApi.CashOnDeliveryOrder,
@@ -53,6 +57,10 @@ const CheckoutPage = () => {
   }
 
   const handleOnlinePayment = async () => {
+    if (selectAddress === null) {
+      toast.error("Please select an address")
+      return
+    }
     try {
       toast.loading("Loading...")
       const stripePublicKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY

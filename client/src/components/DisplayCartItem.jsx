@@ -134,7 +134,12 @@ const DisplayCartItem = ({close}) => {
                                     <p className='text-xs text-gray-400 font-semibold max-w-[240px]'>Add items to your cart to experience lightning-fast delivery!</p>
                                 </div>
                                 <button 
-                                    onClick={close}
+                                    onClick={() => {
+                                        navigate("/")
+                                        if(close) {
+                                            close()
+                                        }
+                                    }}
                                     className='inline-flex items-center justify-center bg-primary hover:bg-primary-hover active:scale-95 transition-all text-white font-extrabold text-xs lg:text-sm px-6 py-2.5 rounded-xl shadow-[0_4px_12px_rgba(108,99,255,0.2)]'
                                 >
                                     Shop Now

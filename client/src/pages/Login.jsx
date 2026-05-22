@@ -68,53 +68,75 @@ const Login = () => {
 
     }
     return (
-        <section className='w-full container mx-auto px-2'>
-            <div className='bg-white my-4 w-full max-w-lg mx-auto rounded p-7'>
+        <section className='w-full min-h-[80vh] flex items-center justify-center px-4 py-8 bg-gradient-to-tr from-primary/5 via-[#F5F3FF] to-[#A78BFA]/10'>
+            <div className='bg-white/90 backdrop-blur-md w-full max-w-lg mx-auto rounded-3xl p-8 lg:p-10 shadow-xl border border-purple-100/50'>
+                <div className='text-center mb-6'>
+                    <span className='inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-extrabold px-3 py-1 rounded-full mb-3 uppercase tracking-wider'>
+                        Fast. Fresh. Instant. ⚡
+                    </span>
+                    <h2 className='text-3xl font-black text-secondary tracking-tight font-display mb-1.5'>
+                        Welcome to <span className='text-primary'>Ashivo</span>
+                    </h2>
+                    <p className='text-xs lg:text-sm text-gray-500 font-medium'>
+                        Sign in to access your instant 10-minute deliveries!
+                    </p>
+                </div>
 
-                <form className='grid gap-4 py-4' onSubmit={handleSubmit}>
+                <form className='grid gap-4 mt-2' onSubmit={handleSubmit}>
                     <div className='grid gap-1'>
-                        <label htmlFor='email'>Email :</label>
+                        <label htmlFor='email' className='text-xs lg:text-sm font-bold text-secondary text-left'>Email Address</label>
                         <input
                             type='email'
                             id='email'
-                            className='bg-blue-50 p-2 border rounded outline-none focus:border-primary-200'
+                            className='bg-[#F5F3FF]/50 p-3 border border-purple-100/80 rounded-xl outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all text-sm font-semibold text-secondary placeholder-gray-400'
                             name='email'
                             value={data.email}
                             onChange={handleChange}
-                            placeholder='Enter your email'
+                            placeholder='Enter your email address'
                         />
                     </div>
                     <div className='grid gap-1'>
-                        <label htmlFor='password'>Password :</label>
-                        <div className='bg-blue-50 p-2 border rounded flex items-center focus-within:border-primary-200'>
+                        <div className='flex justify-between items-center'>
+                            <label htmlFor='password' className='text-xs lg:text-sm font-bold text-secondary text-left'>Password</label>
+                            <Link to={"/forgot-password"} className='text-xs font-bold text-primary hover:text-primary-hover hover:underline transition-all'>Forgot password?</Link>
+                        </div>
+                        <div className='bg-[#F5F3FF]/50 p-3 border border-purple-100/80 rounded-xl flex items-center focus-within:bg-white focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/15 transition-all'>
                             <input
                                 type={showPassword ? "text" : "password"}
                                 id='password'
-                                className='w-full outline-none'
+                                className='w-full bg-transparent outline-none text-sm font-semibold text-secondary placeholder-gray-400'
                                 name='password'
                                 value={data.password}
                                 onChange={handleChange}
                                 placeholder='Enter your password'
                             />
-                            <div onClick={() => setShowPassword(preve => !preve)} className='cursor-pointer'>
+                            <button 
+                                type='button'
+                                onClick={() => setShowPassword(preve => !preve)} 
+                                className='cursor-pointer text-gray-400 hover:text-primary transition-colors ml-2'
+                            >
                                 {
                                     showPassword ? (
-                                        <FaRegEye />
+                                        <FaRegEye className='w-4 h-4' />
                                     ) : (
-                                        <FaRegEyeSlash />
+                                        <FaRegEyeSlash className='w-4 h-4' />
                                     )
                                 }
-                            </div>
+                            </button>
                         </div>
-                        <Link to={"/forgot-password"} className='block ml-auto hover:text-primary-200'>Forgot password ?</Link>
                     </div>
 
-                    <button disabled={!valideValue} className={` ${valideValue ? "bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md" : "bg-gray-500"}    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Login</button>
+                    <button 
+                        disabled={!valideValue} 
+                        className={`w-full py-3 rounded-xl font-extrabold my-2 tracking-wider text-sm transition-all duration-300 ${valideValue ? "bg-primary hover:bg-primary-hover active:scale-[0.98] hover:shadow-[0_4px_12px_rgba(108,99,255,0.25)] text-white cursor-pointer" : "bg-gray-300 text-gray-500 cursor-not-allowed"}`}
+                    >
+                        Login
+                    </button>
 
                 </form>
 
-                <p>
-                    Don't have account? <Link to={"/register"} className='font-semibold text-primary-hover hover:text-primary-hover'>Register</Link>
+                <p className='text-xs lg:text-sm text-gray-500 font-medium mt-6 text-center border-t border-purple-50/80 pt-6'>
+                    Don't have an account? <Link to={"/register"} className='font-bold text-primary hover:text-primary-hover hover:underline transition-colors'>Register Now</Link>
                 </p>
             </div>
         </section>

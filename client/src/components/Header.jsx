@@ -57,32 +57,23 @@ const Header = () => {
     // },[cartItem])
 
   return (
-    <header className='h-24 lg:h-20 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-1 bg-white'>
+    <header className='h-24 lg:h-20 glassmorphism sticky top-0 z-40 flex flex-col justify-center gap-1 shadow-sm transition-all duration-300'>
         {
             !(isSearchPage && isMobile) && (
-                <div className='container mx-auto flex items-center px-2 justify-between'>
+                <div className='container mx-auto flex items-center px-4 justify-between'>
                                 {/**logo */}
-                                <div className='h-full'>
-                                    <Link to={"/"} className='h-full flex justify-center items-center'>
+                                <div className='h-full flex items-center py-1'>
+                                    <Link to={"/"} className='h-full flex items-center'>
                                         <img 
                                             src={logo}
-                                            width={170}
-                                            height={60}
-                                            alt='logo'
-                                            className='hidden lg:block'
-                                        />
-                                        <img 
-                                            src={logo}
-                                            width={120}
-                                            height={60}
-                                            alt='logo'
-                                            className='lg:hidden'
+                                            alt='Ashivo Logo'
+                                            className='h-7 lg:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105'
                                         />
                                     </Link>
                                 </div>
 
                                 {/**Search */}
-                                <div className='hidden lg:block'>
+                                <div className='hidden lg:block w-full max-w-xl mx-8'>
                                     <Search/>
                                 </div>
 
@@ -95,25 +86,25 @@ const Header = () => {
                                     </button>
 
                                       {/**Desktop**/}
-                                    <div className='hidden lg:flex  items-center gap-10'>
+                                    <div className='hidden lg:flex  items-center gap-8'>
                                         {
                                             user?._id ? (
                                                 <div className='relative'>
-                                                    <div onClick={()=>setOpenUserMenu(preve => !preve)} className='flex select-none items-center gap-1 cursor-pointer'>
+                                                    <div onClick={()=>setOpenUserMenu(preve => !preve)} className='flex select-none items-center gap-1 cursor-pointer font-semibold text-secondary hover:text-primary transition-colors'>
                                                         <p>Account</p>
                                                         {
                                                             openUserMenu ? (
-                                                                  <GoTriangleUp size={25}/> 
+                                                                   <GoTriangleUp size={20}/> 
                                                             ) : (
-                                                                <GoTriangleDown size={25}/>
+                                                                <GoTriangleDown size={20}/>
                                                             )
                                                         }
                                                        
                                                     </div>
                                                     {
                                                         openUserMenu && (
-                                                            <div className='absolute right-0 top-12'>
-                                                                <div className='bg-white rounded p-4 min-w-52 lg:shadow-lg'>
+                                                            <div className='absolute right-0 top-12 z-50'>
+                                                                <div className='bg-white rounded-xl border border-purple-100 p-4 min-w-52 shadow-xl'>
                                                                     <UserMenu close={handleCloseUserMenu}/>
                                                                 </div>
                                                             </div>
@@ -122,20 +113,20 @@ const Header = () => {
                                                     
                                                 </div>
                                             ) : (
-                                                <button onClick={redirectToLoginPage} className='text-lg px-2'>Login</button>
+                                                <button onClick={redirectToLoginPage} className='text-base font-semibold text-secondary hover:text-primary transition-colors px-2'>Login</button>
                                             )
                                         }
-                                        <button onClick={()=>setOpenCartSection(true)} className='flex items-center gap-2 bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md px-3 py-2 rounded text-white'>
+                                        <button onClick={()=>setOpenCartSection(true)} className='button-glow flex items-center gap-3 bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.03] px-4 py-2 rounded-xl text-white'>
                                             {/**add to card icons */}
                                             <div className='animate-bounce'>
-                                                <BsCart4 size={26}/>
+                                                <BsCart4 size={24}/>
                                             </div>
-                                            <div className='font-semibold text-sm'>
+                                            <div className='font-bold text-sm text-left leading-tight'>
                                                 {
                                                     cartItem[0] ? (
                                                         <div>
                                                             <p>{totalQty} Items</p>
-                                                            <p>{DisplayPriceInRupees(totalPrice)}</p>
+                                                            <p className='text-xs opacity-90'>{DisplayPriceInRupees(totalPrice)}</p>
                                                         </div>
                                                     ) : (
                                                         <p>My Cart</p>

@@ -16,48 +16,63 @@ const CardProduct = ({data}) => {
     const [loading,setLoading] = useState(false)
   
   return (
-    <Link to={url} className='border py-2 lg:p-4 grid gap-1 lg:gap-3 min-w-36 lg:min-w-52 rounded cursor-pointer bg-white transition-all duration-300 hover:shadow-md hover:scale-[1.02]' >
-      <div className='min-h-20 w-full max-h-24 lg:max-h-32 rounded overflow-hidden'>
+    <Link to={url} className='group relative bg-white hover:bg-white border border-purple-100 hover:border-primary/20 p-3 lg:p-4 flex flex-col gap-2 rounded-2xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 w-full min-w-[144px] lg:min-w-[208px]' >
+      {/* Product Image Wrapper */}
+      <div className='w-full aspect-square bg-[#F5F3FF]/40 rounded-xl overflow-hidden mb-1 p-2.5 flex items-center justify-center relative group-hover:bg-[#F5F3FF]/65 transition-colors duration-300'>
             <img 
                 src={data.image[0]}
-                className='w-full h-full object-scale-down lg:scale-125'
+                alt={data.name}
+                className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-300'
             />
       </div>
-      <div className='flex items-center gap-1'>
-        <div className='rounded text-xs w-fit p-[1px] px-2 text-primary bg-primary/10'>10 Min ⚡</div>
-        <div>
-            {
-              Boolean(data.discount) && (
-                <p className='text-primary bg-primary/20 px-2 w-fit text-xs rounded-full'>{data.discount}% discount</p>
-              )
-            }
+
+      {/* Badges Section */}
+      <div className='flex flex-wrap items-center gap-1.5 mb-1.5'>
+        <div className='rounded-full text-[10px] lg:text-xs font-bold px-2 py-0.5 text-primary bg-primary/10 flex items-center gap-1'>
+            10 Min ⚡
         </div>
-      </div>
-      <div className='px-2 lg:px-0 font-medium text-ellipsis text-sm lg:text-base line-clamp-2'>
-        {data.name}
-      </div>
-      <div className='w-fit gap-1 px-2 lg:px-0 text-sm lg:text-base'>
-        {data.unit} 
-        
+        {
+          Boolean(data.discount) && (
+            <div className='rounded-full text-[10px] lg:text-xs font-bold px-2 py-0.5 text-success bg-success/15'>
+                {data.discount}% OFF
+            </div>
+          )
+        }
       </div>
 
-      <div className='px-2 lg:px-0 flex items-center justify-between gap-1 lg:gap-3 text-sm lg:text-base'>
-        <div className='flex items-center gap-1'>
-          <div className='font-semibold'>
+      {/* Product Information */}
+      <div className='font-extrabold text-secondary text-xs lg:text-sm line-clamp-2 h-8 lg:h-10 text-left leading-tight group-hover:text-primary transition-colors duration-200'>
+        {data.name}
+      </div>
+      <div className='text-xs text-gray-500 font-semibold text-left'>
+        {data.unit} 
+      </div>
+
+      {/* Price & Add to Cart Layout */}
+      <div className='flex items-center justify-between gap-1.5 mt-auto pt-2 border-t border-purple-50/50'>
+        <div className='flex flex-col text-left'>
+          {
+            Boolean(data.discount) && (
+              <span className='text-[10px] lg:text-xs text-gray-400 line-through leading-none mb-0.5'>
+                  {DisplayPriceInRupees(data.price)}
+              </span>
+            )
+          }
+          <span className='text-sm lg:text-base font-black text-secondary leading-none'>
               {DisplayPriceInRupees(pricewithDiscount(data.price,data.discount))} 
-          </div>
-          
-          
+          </span>
         </div>
-        <div className=''>
+
+        <div className='flex-shrink-0'>
           {
             data.stock == 0 ? (
-              <p className='text-red-500 text-sm text-center'>Out of stock</p>
+              <span className='inline-block bg-red-50 text-red-600 border border-red-100 text-[10px] lg:text-xs font-extrabold px-2.5 py-1.5 rounded-lg'>
+                  Out of Stock
+              </span>
             ) : (
               <AddToCartButton data={data} />
             )
           }
-            
         </div>
       </div>
 

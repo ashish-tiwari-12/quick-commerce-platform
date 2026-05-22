@@ -101,10 +101,10 @@ const ProductDisplayPage = () => {
                       <button
                         key={img + index}
                         onClick={() => setImage(index)}
-                        className={`flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 rounded-lg border-2 overflow-hidden transition-all duration-200 ${
+                        className={`flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 rounded-xl border-2 overflow-hidden transition-all duration-200 ${
                           index === image
-                            ? "border-green-600 shadow-md"
-                            : "border-gray-200 hover:border-gray-300"
+                            ? "border-primary shadow-lg scale-105"
+                            : "border-purple-100 hover:border-primary/40 bg-white"
                         }`}
                       >
                         <img
@@ -177,11 +177,8 @@ const ProductDisplayPage = () => {
             <div className='bg-white rounded-xl shadow-sm p-4 lg:p-6'>
               
               {/* Delivery Badge */}
-              <div className='inline-flex items-center gap-2 bg-gradient-to-r from-green-400 to-green-500 text-white px-4 py-1.5 rounded-full text-sm font-medium shadow-sm mb-4'>
-                <svg className='w-4 h-4' fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
-                </svg>
-                Delivery in 10 minutes
+              <div className='inline-flex items-center gap-1.5 bg-primary/10 text-primary px-3.5 py-1.5 rounded-full text-xs font-black shadow-sm mb-4 uppercase tracking-wider'>
+                10 Min Delivery ⚡
               </div>
 
               {/* Product Name */}
@@ -230,27 +227,27 @@ const ProductDisplayPage = () => {
               <Divider />
 
               {/* Return Policy */}
-              <div className='bg-blue-50 rounded-lg p-4 mt-5'>
+              <div className='bg-[#F5F3FF]/60 border border-purple-100/50 rounded-2xl p-4 mt-5'>
                 <div className='flex items-start gap-3'>
-                  <svg className='w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5' fill="currentColor" viewBox="0 0 20 20">
+                  <svg className='w-5 h-5 text-primary flex-shrink-0 mt-0.5' fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                   </svg>
                   <div>
-                    <h4 className='font-semibold text-gray-800 text-sm mb-1'>Easy Returns & Refunds</h4>
-                    <p className='text-xs text-gray-600'>Return products at doorstep and get refund in seconds.</p>
+                    <h4 className='font-bold text-secondary text-sm mb-1'>Easy Returns & Refunds</h4>
+                    <p className='text-xs text-gray-500 leading-relaxed'>Return products at your doorstep and get a refund instantly.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Why Shop Section */}
-            <div className='bg-white rounded-xl shadow-sm p-4 lg:p-6'>
-              <h3 className='text-lg font-bold text-gray-900 mb-4 flex items-center gap-2'>
+            <div className='bg-white rounded-xl shadow-sm border border-purple-100/40 p-4 lg:p-6'>
+              <h3 className='text-lg font-black text-secondary mb-4 flex items-center gap-2'>
                 <svg className='w-5 h-5 text-primary' fill="currentColor" viewBox="0 0 20 20">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                   <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Why shop from binkeyit?
+                Why shop from Ashivo?
               </h3>
               
               <div className='space-y-3'>

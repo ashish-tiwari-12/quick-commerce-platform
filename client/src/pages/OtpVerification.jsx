@@ -60,13 +60,24 @@ const OtpVerification = () => {
     }
 
     return (
-        <section className='w-full container mx-auto px-2'>
-            <div className='bg-white my-4 w-full max-w-lg mx-auto rounded p-7'>
-                <p className='font-semibold text-lg'>Enter OTP</p>
-                <form className='grid gap-4 py-4' onSubmit={handleSubmit}>
-                    <div className='grid gap-1'>
-                        <label htmlFor='otp'>Enter Your OTP :</label>
-                        <div className='flex items-center gap-2 justify-between mt-3'>
+        <section className='w-full min-h-[70vh] flex items-center justify-center px-4 py-8 bg-gradient-to-tr from-primary/5 via-[#F5F3FF] to-[#A78BFA]/10'>
+            <div className='bg-white/90 backdrop-blur-md w-full max-w-lg mx-auto rounded-3xl p-8 lg:p-10 shadow-xl border border-purple-100/50'>
+                <div className='text-center mb-6'>
+                    <span className='inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-extrabold px-3 py-1 rounded-full mb-3 uppercase tracking-wider'>
+                        Security Verification ⚡
+                    </span>
+                    <h2 className='text-3xl font-black text-secondary tracking-tight font-display mb-1.5'>
+                        Enter OTP Code
+                    </h2>
+                    <p className='text-xs lg:text-sm text-gray-500 font-medium'>
+                        We've sent a 6-digit verification code to <span className='text-secondary font-bold'>{location?.state?.email}</span>
+                    </p>
+                </div>
+
+                <form className='grid gap-6 mt-2' onSubmit={handleSubmit}>
+                    <div className='grid gap-2'>
+                        <label htmlFor='otp' className='text-xs lg:text-sm font-bold text-secondary text-left'>Enter 6-Digit Code</label>
+                        <div className='flex items-center gap-2 lg:gap-3 justify-between mt-1'>
                             {
                                 data.map((element,index)=>{
                                     return(
@@ -90,25 +101,27 @@ const OtpVerification = () => {
                                                 if(value && index < 5){
                                                     inputRef.current[index+1].focus()
                                                 }
-
-
                                             }}
                                             maxLength={1}
-                                            className='bg-blue-50 w-full max-w-16 p-2 border rounded outline-none focus:border-primary-200 text-center font-semibold'
+                                            className='bg-[#F5F3FF]/50 w-full aspect-square max-w-12 p-1 border border-purple-100/80 rounded-xl outline-none focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/15 transition-all text-center font-black text-secondary text-lg'
                                         />
                                     )
                                 })
                             }
                         </div>
-                        
                     </div>
              
-                    <button disabled={!valideValue} className={` ${valideValue ? "bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md" : "bg-gray-500" }    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Verify OTP</button>
+                    <button 
+                        disabled={!valideValue} 
+                        className={`w-full py-3 rounded-xl font-extrabold my-2 tracking-wider text-sm transition-all duration-300 ${valideValue ? "bg-primary hover:bg-primary-hover active:scale-[0.98] hover:shadow-[0_4px_12px_rgba(108,99,255,0.25)] text-white cursor-pointer" : "bg-gray-300 text-gray-500 cursor-not-allowed"}`}
+                    >
+                        Verify OTP
+                    </button>
 
                 </form>
 
-                <p>
-                    Already have account? <Link to={"/login"} className='font-semibold text-primary-hover hover:text-primary-hover'>Login</Link>
+                <p className='text-xs lg:text-sm text-gray-500 font-medium mt-6 text-center border-t border-purple-50/80 pt-6'>
+                    Already have an account? <Link to={"/login"} className='font-bold text-primary hover:text-primary-hover hover:underline transition-colors'>Login Here</Link>
                 </p>
             </div>
         </section>

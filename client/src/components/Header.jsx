@@ -57,7 +57,7 @@ const Header = () => {
     // },[cartItem])
 
   return (
-    <header className='h-24 lg:h-20 glassmorphism sticky top-0 z-40 flex flex-col justify-center gap-1 shadow-sm transition-all duration-300'>
+    <header className={`glassmorphism sticky top-0 z-40 flex flex-col justify-center gap-1 shadow-sm transition-all duration-300 ${isSearchPage && isMobile ? 'h-16' : 'h-24 lg:h-20'}`}>
         {
             !(isSearchPage && isMobile) && (
                 <div className='container mx-auto flex items-center px-4 justify-between'>

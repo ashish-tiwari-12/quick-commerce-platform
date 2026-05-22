@@ -31,30 +31,30 @@ const Search = () => {
     }
 
   return (
-    <div className='w-full  min-w-[300px] lg:min-w-[420px] h-11 lg:h-12 rounded-lg border overflow-hidden flex items-center text-neutral-500 bg-slate-50 group focus-within:border-primary-200 '>
+    <div className='w-full min-w-[300px] lg:min-w-[420px] h-11 lg:h-12 rounded-xl border border-purple-100/70 overflow-hidden flex items-center text-neutral-500 bg-purple-50/30 hover:bg-purple-50/50 focus-within:bg-white group focus-within:border-primary/40 focus-within:ring-4 focus-within:ring-primary/10 transition-all duration-300 shadow-sm'>
         <div>
             {
                 (isMobile && isSearchPage ) ? (
-                    <Link to={"/"} className='flex justify-center items-center h-full p-2 m-1 group-focus-within:text-primary-200 bg-white rounded-full shadow-md'>
-                        <FaArrowLeft size={20}/>
+                    <Link to={"/"} className='flex justify-center items-center h-full p-2.5 m-1 text-primary bg-primary/5 rounded-full hover:bg-primary/10 transition-colors'>
+                        <FaArrowLeft size={18}/>
                     </Link>
                 ) :(
-                    <button className='flex justify-center items-center h-full p-3 group-focus-within:text-primary-200'>
+                    <button className='flex justify-center items-center h-full p-3 text-neutral-400 group-focus-within:text-primary transition-colors'>
                         <IoSearch size={22}/>
                     </button>
                 )
             }
         </div>
-        <div className='w-full h-full'>
+        <div className='w-full h-full pr-4'>
             {
                 !isSearchPage ? (
                      //not in search page
-                     <div onClick={redirectToSearchPage} className='w-full h-full flex items-center'>
+                     <div onClick={redirectToSearchPage} className='w-full h-full flex items-center text-sm font-medium text-neutral-400 pl-1 cursor-pointer select-none'>
                         <TypeAnimation
                                 sequence={[
                                     // Same substring at the start will only be typed out once, initially
                                     'Search "milk"',
-                                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                                    1000, 
                                     'Search "bread"',
                                     1000,
                                     'Search "sugar"',
@@ -77,17 +77,17 @@ const Search = () => {
                             />
                      </div>
                 ) : (
-                    //when i was search page
-                    <div className='w-full h-full'>
+                     //when in search page
+                     <div className='w-full h-full flex items-center'>
                         <input
                             type='text'
-                            placeholder='Search for atta dal and more.'
+                            placeholder='Search for atta, dal, pepper and more...'
                             autoFocus
                             defaultValue={searchText}
-                            className='bg-transparent w-full h-full outline-none'
+                            className='bg-transparent w-full h-full outline-none text-secondary font-semibold placeholder-gray-400 text-sm pl-1'
                             onChange={handleOnChange}
                         />
-                    </div>
+                     </div>
                 )
             }
         </div>

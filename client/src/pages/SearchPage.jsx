@@ -64,16 +64,31 @@ const SearchPage = () => {
   }
 
   return (
-    <section className='bg-white'>
-      <div className='container mx-auto p-4'>
-        <p className='font-semibold'>Search Results: {data.length}  </p>
+    <section className='bg-white min-h-[75vh]'>
+      <div className='container mx-auto px-4 py-6 md:py-8'>
+        {/* Premium Results Header */}
+        <div className='flex items-center justify-between mb-6 border-b border-purple-50 pb-4'>
+          <div>
+            <h1 className='text-xl md:text-2xl font-black text-secondary tracking-tight'>
+              Search Results
+            </h1>
+            {searchText && (
+              <p className='text-xs md:text-sm text-gray-500 font-medium mt-1'>
+                Showing matches for "<span className='text-primary font-bold'>{decodeURIComponent(searchText)}</span>"
+              </p>
+            )}
+          </div>
+          <span className='bg-primary/10 text-primary text-xs md:text-sm font-extrabold px-3 py-1.5 rounded-full flex items-center gap-1 shadow-sm border border-primary/5'>
+            {data.length} {data.length === 1 ? 'item' : 'items'} ✨
+          </span>
+        </div>
 
         <InfiniteScroll
               dataLength={data.length}
-              hasMore={true}
+              hasMore={totalPage > page}
               next={handleFetchMore}
         >
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 py-4 gap-4'>
+        <div className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 py-4 gap-3 md:gap-5'>
               {
                 data.map((p,index)=>{
                   return(
@@ -96,14 +111,22 @@ const SearchPage = () => {
         </InfiniteScroll>
 
               {
-                //no data 
+                // Premium Empty State
                 !data[0] && !loading && (
-                  <div className='flex flex-col justify-center items-center w-full mx-auto'>
-                    <img
-                      src={noDataImage} 
-                      className='w-full h-full max-w-xs max-h-xs block'
-                    />
-                    <p className='font-semibold my-2'>No Data found</p>
+                  <div className='flex flex-col justify-center items-center w-full min-h-[45vh] mx-auto py-12 text-center px-4'>
+                    <div className='w-48 h-48 md:w-56 md:h-56 mb-6 flex items-center justify-center animate-pulse'>
+                      <img
+                        src={noDataImage} 
+                        className='w-full h-full object-contain'
+                        alt="No results found"
+                      />
+                    </div>
+                    <h3 className='text-lg md:text-xl font-extrabold text-secondary mb-2'>
+                      No products found
+                    </h3>
+                    <p className='text-xs md:text-sm text-gray-400 font-semibold max-w-sm leading-relaxed mb-4'>
+                      Double check the spelling, try a more general term, or search for another item.
+                    </p>
                   </div>
                 )
               }

@@ -86,15 +86,15 @@ const AddToCartButton = ({ data }) => {
             {
                 isAvailableCart ? (
                     <div className='flex w-full h-full'>
-                        <button onClick={decreaseQty} className='bg-green-600 hover:bg-green-700 text-white flex-1 w-full p-1 rounded flex items-center justify-center'><FaMinus /></button>
+                        <button onClick={decreaseQty} className='bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-white flex-1 w-full p-1 rounded flex items-center justify-center'><FaMinus /></button>
 
                         <p className='flex-1 w-full font-semibold px-1 flex items-center justify-center'>{qty}</p>
 
-                        <button onClick={increaseQty} className='bg-green-600 hover:bg-green-700 text-white flex-1 w-full p-1 rounded flex items-center justify-center'><FaPlus /></button>
+                        <button onClick={increaseQty} className='bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-white flex-1 w-full p-1 rounded flex items-center justify-center'><FaPlus /></button>
                     </div>
                 ) : (
-                    <button onClick={handleADDTocart} className='bg-green-600 hover:bg-green-700 text-white px-2 lg:px-4 py-1 rounded'>
-                        {loading ? <Loading /> : "Add"}
+                    <button onClick={handleADDTocart} className='bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md text-white px-2 lg:px-4 py-1 rounded'>
+                        {loading ? <Loading /> : "Grab it"}
                     </button>
                 )
             }

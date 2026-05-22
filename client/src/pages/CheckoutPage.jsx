@@ -158,9 +158,9 @@ const CheckoutPage = () => {
             </div>
           </div>
           <div className='w-full flex flex-col gap-4'>
-            <button className='py-2 px-4 bg-green-600 hover:bg-green-700 rounded text-white font-semibold' onClick={handleOnlinePayment}>Online Payment</button>
+            <button className='py-2 px-4 bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md rounded text-white font-semibold' onClick={handleOnlinePayment}>Online Payment</button>
 
-            <button className='py-2 px-4 border-2 border-green-600 font-semibold text-green-600 hover:bg-green-600 hover:text-white' onClick={handleCashOnDelivery}>Cash on Delivery</button>
+            <button className='py-2 px-4 border-2 border-green-600 font-semibold text-primary hover:bg-primary hover:text-white' onClick={handleCashOnDelivery}>Cash on Delivery</button>
           </div>
         </div>
       </div>

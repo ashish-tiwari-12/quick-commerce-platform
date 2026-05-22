@@ -73,7 +73,7 @@ const Register = () => {
     return (
         <section className='w-full container mx-auto px-2'>
             <div className='bg-white my-4 w-full max-w-lg mx-auto rounded p-7'>
-                <p>Welcome to Binkeyit</p>
+                <p>Welcome to ZippyCart</p>
 
                 <form className='grid gap-4 mt-6' onSubmit={handleSubmit}>
                     <div className='grid gap-1'>
@@ -148,12 +148,12 @@ const Register = () => {
                         </div>
                     </div>
 
-                    <button disabled={!valideValue} className={` ${valideValue ? "bg-green-800 hover:bg-green-700" : "bg-gray-500" }    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Register</button>
+                    <button disabled={!valideValue} className={` ${valideValue ? "bg-primary hover:bg-primary-hover transition-all duration-300 hover:scale-[1.02] hover:shadow-md" : "bg-gray-500" }    text-white py-2 rounded font-semibold my-3 tracking-wide`}>Register</button>
 
                 </form>
 
                 <p>
-                    Already have account ? <Link to={"/login"} className='font-semibold text-green-700 hover:text-green-800'>Login</Link>
+                    Already have account ? <Link to={"/login"} className='font-semibold text-primary-hover hover:text-primary-hover'>Login</Link>
                 </p>
             </div>
         </section>

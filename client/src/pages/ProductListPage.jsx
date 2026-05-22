@@ -89,8 +89,8 @@ const ProductListPage = () => {
                           key={s._id}
                           to={link} 
                           className={`flex flex-col md:flex-row items-center gap-2 md:gap-3 p-2 md:p-3 border-b border-gray-100
-                            hover:bg-green-50 transition-colors duration-200
-                            ${subCategoryId === s._id ? "bg-green-100 border-l-4 border-l-green-600" : ""}
+                            hover:bg-primary/10 transition-colors duration-200
+                            ${subCategoryId === s._id ? "bg-primary/20 border-l-4 border-l-green-600" : ""}
                           `}
                         >
                           <div className='w-12 h-12 md:w-14 md:h-14 flex-shrink-0 bg-gray-50 rounded-lg p-1 flex items-center justify-center'>

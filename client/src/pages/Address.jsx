@@ -59,7 +59,7 @@ const Address = () => {
                             <button onClick={()=>{
                               setOpenEdit(true)
                               setEditData(address)
-                            }} className='bg-green-200 p-1 rounded  hover:text-white hover:bg-green-600'>
+                            }} className='bg-primary/30 p-1 rounded  hover:text-white hover:bg-primary'>
                               <MdEdit/>
                             </button>
                             <button onClick={()=>

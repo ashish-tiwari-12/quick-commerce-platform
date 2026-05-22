@@ -98,7 +98,7 @@ const CategoryPage = () => {
                                     <button onClick={()=>{
                                         setOpenEdit(true)
                                         setEditData(category)
-                                    }} className='flex-1 bg-green-500 hover:bg-green-600 text-white font-medium py-1.5 rounded-lg transition-colors duration-200'>
+                                    }} className='flex-1 bg-primary/100 hover:bg-primary text-white font-medium py-1.5 rounded-lg transition-colors duration-200'>
                                         Edit
                                     </button>
                                     <button onClick={()=>{

@@ -132,9 +132,9 @@ export const getProductByCategoryAndSubCategory = async (request, response) => {
     try {
         const { categoryId, subCategoryId, page, limit } = request.body
 
-//         console.log("BODY 👉", request.body);
-// console.log("categoryId 👉", categoryId, typeof categoryId);
-// console.log("subCategoryId 👉", subCategoryId, typeof subCategoryId);
+        //         console.log("BODY 👉", request.body);
+        // console.log("categoryId 👉", categoryId, typeof categoryId);
+        // console.log("subCategoryId 👉", subCategoryId, typeof subCategoryId);
 
 
         if (!categoryId || !subCategoryId) {
@@ -154,8 +154,8 @@ export const getProductByCategoryAndSubCategory = async (request, response) => {
         }
 
         const query = {
-            category : { $in :categoryId  },
-            subCategory : { $in : subCategoryId }
+            category: { $in: categoryId },
+            subCategory: { $in: subCategoryId }
         }
         // const query = {
         //     category: categoryId,

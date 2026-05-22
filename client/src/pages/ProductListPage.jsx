@@ -121,7 +121,7 @@ const ProductListPage = () => {
             </div>
 
             <div className='bg-white rounded-lg shadow-sm p-2 md:p-4'>
-              <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-4'>
+              <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 md:gap-4 justify-items-center'>
                 {
                   data.map((p, index) => {
                     return (

@@ -16,7 +16,7 @@ const CardProduct = ({data}) => {
     const [loading,setLoading] = useState(false)
   
   return (
-    <Link to={url} className='group relative bg-white hover:bg-white border border-purple-100 hover:border-primary/20 p-3 lg:p-4 flex flex-col gap-2 rounded-2xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 w-full min-w-[144px] lg:min-w-[208px]' >
+    <Link to={url} className='group relative bg-white hover:bg-white border border-purple-100 hover:border-primary/20 p-3 lg:p-4 flex flex-col gap-2 rounded-2xl cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 w-36 lg:w-52 flex-shrink-0' >
       {/* Product Image Wrapper */}
       <div className='w-full aspect-square bg-[#F5F3FF]/40 rounded-xl overflow-hidden mb-1 p-2.5 flex items-center justify-center relative group-hover:bg-[#F5F3FF]/65 transition-colors duration-300'>
             <img 

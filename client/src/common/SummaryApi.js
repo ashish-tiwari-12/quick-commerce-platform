@@ -53,8 +53,8 @@ const SummaryApi = {
         url:'/api/category/get',
         method:'get'
     },
-    upadateUserDetails:{
-        url:'api/user/update-user',
+    updateUserDetails:{
+        url:'/api/user/update-user',
         method: 'put'
     },
     updateCategory : {

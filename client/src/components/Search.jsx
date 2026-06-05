@@ -12,12 +12,17 @@ const Search = () => {
     const [isSearchPage,setIsSearchPage] = useState(false)
     const [ isMobile ] = useMobile()
     const params = useLocation()
-    const searchText = params.search.slice(3)
+    const searchText = new URLSearchParams(params.search).get("q") || ""
+    const [searchVal, setSearchVal] = useState(searchText)
 
     useEffect(()=>{
         const isSearch = location.pathname === "/search"
         setIsSearchPage(isSearch)
     },[location])
+
+    useEffect(() => {
+        setSearchVal(searchText)
+    }, [searchText])
 
 
     const redirectToSearchPage = ()=>{
@@ -26,6 +31,7 @@ const Search = () => {
 
     const handleOnChange = (e)=>{
         const value = e.target.value
+        setSearchVal(value)
         const url = `/search?q=${value}`
         navigate(url)
     }
@@ -83,7 +89,7 @@ const Search = () => {
                             type='text'
                             placeholder='Search for atta, dal, pepper and more...'
                             autoFocus
-                            defaultValue={searchText}
+                            value={searchVal}
                             className='bg-transparent w-full h-full outline-none text-secondary font-semibold placeholder-gray-400 text-sm pl-1'
                             onChange={handleOnChange}
                         />

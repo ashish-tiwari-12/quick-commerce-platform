@@ -15,11 +15,26 @@ const SearchPage = () => {
   const [page,setPage] = useState(1)
   const [totalPage,setTotalPage] = useState(1)
   const params = useLocation()
-  const searchText = params?.search?.slice(3)
+  const query = new URLSearchParams(params.search)
+  const searchText = query.get("q") || ""
 
-  const fetchData = async() => {
-    try {
-      setLoading(true)
+  const lastSearchText = React.useRef(searchText)
+
+  useEffect(() => {
+    let active = true
+
+    // Reset page to 1 when search query changes
+    if (lastSearchText.current !== searchText) {
+      lastSearchText.current = searchText
+      if (page !== 1) {
+        setPage(1)
+        return // setPage will trigger this effect again
+      }
+    }
+
+    const fetchData = async () => {
+      try {
+        setLoading(true)
         const response = await Axios({
             ...SummaryApi.searchProduct,
             data : {
@@ -30,10 +45,10 @@ const SearchPage = () => {
 
         const { data : responseData } = response
 
-        if(responseData.success){
-            if(responseData.page == 1){
+        if (responseData.success && active) {
+            if (responseData.page == 1) {
               setData(responseData.data)
-            }else{
+            } else {
               setData((preve)=>{
                 return[
                   ...preve,
@@ -44,16 +59,23 @@ const SearchPage = () => {
             setTotalPage(responseData.totalPage)
             console.log(responseData)
         }
-    } catch (error) {
-        AxiosToastError(error)
-    }finally{
-      setLoading(false)
+      } catch (error) {
+        if (active) {
+          AxiosToastError(error)
+        }
+      } finally {
+        if (active) {
+          setLoading(false)
+        }
+      }
     }
-  }
 
-  useEffect(()=>{
     fetchData()
-  },[page,searchText])
+
+    return () => {
+      active = false
+    }
+  }, [page, searchText])
 
   console.log("page",page)
 
@@ -74,7 +96,7 @@ const SearchPage = () => {
             </h1>
             {searchText && (
               <p className='text-xs md:text-sm text-gray-500 font-medium mt-1'>
-                Showing matches for "<span className='text-primary font-bold'>{decodeURIComponent(searchText)}</span>"
+                Showing matches for "<span className='text-primary font-bold'>{searchText}</span>"
               </p>
             )}
           </div>

@@ -1,7 +1,7 @@
 
 import React from 'react'
-import banner from '../assets/banner.jpg'
-import bannerMobile from '../assets/banner-mobile.jpg'
+import banner from '../assets/ashivo-banner.png'
+import bannerMobile from '../assets/ashivo-banner-mobile.png'
 import { useSelector } from 'react-redux'
 import { valideURLConvert } from '../utils/valideURLConvert'
 import {Link, useNavigate} from 'react-router-dom'
@@ -31,67 +31,69 @@ const Home = () => {
 
   return (
    <section className='bg-[#F5F3FF]/30 min-h-screen pb-12'>
-      {/* Premium Rebranded Hero Section */}
-      <div className='relative overflow-hidden bg-gradient-to-br from-secondary via-[#1E1B4B] to-[#0F172A] text-white py-16 lg:py-24 px-4 mb-12 shadow-inner border-b border-purple-950/20'>
-          {/* Glowing background shapes */}
-          <div className='absolute top-0 right-0 w-96 h-96 bg-primary opacity-20 blur-[120px] rounded-full pointer-events-none animate-pulse'></div>
-          <div className='absolute bottom-0 left-0 w-72 h-72 bg-accent opacity-15 blur-[100px] rounded-full pointer-events-none'></div>
+      {/* Banner Hero Section */}
+      <div className='container mx-auto px-4 py-6 mb-8 md:mb-12'>
+          {/* Laptop / Big Screen Banner (Desktop) */}
+          <div className='hidden md:block relative w-full h-[320px] lg:h-[400px] xl:h-[450px] rounded-3xl overflow-hidden shadow-md border border-purple-100 hover:shadow-lg transition-shadow duration-300'>
+              <img 
+                  src={banner} 
+                  alt="Ashivo Quick Commerce - Fresh groceries and daily essentials delivered instantly" 
+                  className='w-full h-full object-cover object-center'
+              />
+              {/* Premium overlay text on desktop */}
+              <div className='absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-black/70 via-black/40 to-transparent flex flex-col justify-center p-12 text-left z-10'>
+                  <span className='inline-flex items-center gap-2 bg-primary text-white text-xs font-black px-3.5 py-1.5 rounded-full w-max mb-4 uppercase tracking-widest shadow-sm'>
+                      ⚡ FAST. FRESH. INSTANT.
+                  </span>
+                  <h1 className='text-3xl lg:text-4xl xl:text-5xl font-black text-white leading-tight mb-4 drop-shadow-sm'>
+                      Your Daily Essentials <br/>
+                      <span className='bg-gradient-to-r from-accent to-[#C084FC] bg-clip-text text-transparent'>
+                          Delivered Instantly.
+                      </span>
+                  </h1>
+                  <p className='text-gray-200 text-sm lg:text-base max-w-md mb-6 leading-relaxed'>
+                      Experience the premium quick-commerce app <strong className='text-white font-extrabold'>Ashivo</strong>. Fresh groceries, organic produce, and daily household items at your doorstep in under 10 minutes.
+                  </p>
+                  <button 
+                      onClick={() => {
+                          const el = document.getElementById("categories-section");
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }} 
+                      className='bg-primary hover:bg-primary-hover text-white text-sm font-black px-8 py-3.5 rounded-2xl transition-all duration-300 hover:scale-[1.03] active:scale-98 w-max shadow-lg shadow-primary/20 hover:shadow-primary/30'
+                  >
+                      Shop Instantly
+                  </button>
+              </div>
+          </div>
 
-          <div className='container mx-auto relative z-10 max-w-6xl'>
-              <div className='grid lg:grid-cols-12 gap-12 items-center'>
-                  {/* Left Column: Heading and Taglines */}
-                  <div className='lg:col-span-7 space-y-6 text-left'>
-                      <div className='inline-flex items-center gap-2 bg-primary/20 border border-primary/30 text-accent px-4 py-1.5 rounded-full text-xs md:text-sm font-bold tracking-wide animate-pulse shadow-sm'>
-                          <span className='flex h-2 w-2 relative'>
-                            <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75'></span>
-                            <span className='relative inline-flex rounded-full h-2 w-2 bg-accent'></span>
-                          </span>
-                          ⚡ Fast. Fresh. Instant.
-                      </div>
-                      
-                      <h1 className='text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-white'>
-                          Your Daily Essentials <br/>
-                          <span className='bg-gradient-to-r from-accent to-[#C084FC] bg-clip-text text-transparent'>
-                              Delivered Instantly.
-                          </span>
-                      </h1>
-                      
-                      <p className='text-gray-300 text-base md:text-lg max-w-lg leading-relaxed'>
-                          Experience the premium quick-commerce app **Ashivo**. Get fresh groceries, organic produce, and daily household items at your doorstep in under 10 minutes.
-                      </p>
-
-                      <div className='flex flex-wrap gap-4 pt-2'>
-                          <button onClick={() => {
-                              const el = document.getElementById("categories-section");
-                              if (el) el.scrollIntoView({ behavior: 'smooth' });
-                          }} className='button-glow bg-primary hover:bg-primary-hover text-white px-8 py-3.5 rounded-2xl font-bold transition-all duration-300 hover:scale-[1.03] shadow-lg shadow-primary/20 text-sm'>
-                              Shop Instantly
-                          </button>
-                          <div className='hidden sm:flex items-center gap-3 px-4 py-3 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm'>
-                              <div className='text-accent font-black text-xl'>10 Min</div>
-                              <div className='text-xs text-gray-400 leading-tight'>Average<br/>Delivery Time</div>
-                          </div>
-                      </div>
-                  </div>
-
-                  {/* Right Column: Decorative Illustration / Glowing Floating Card */}
-                  <div className='lg:col-span-5 hidden lg:block relative'>
-                      <div className='w-full aspect-square rounded-3xl bg-gradient-to-tr from-primary/30 to-accent/20 p-8 flex items-center justify-center border border-white/5 shadow-2xl relative overflow-hidden backdrop-blur-sm'>
-                          <div className='absolute -inset-1 bg-gradient-to-r from-primary to-accent opacity-30 blur-2xl animate-pulse'></div>
-                          <div className='relative bg-white/10 border border-white/20 p-8 rounded-2xl shadow-xl w-72 backdrop-blur-md transform hover:rotate-2 transition-all duration-500 hover:scale-105'>
-                              <div className='flex justify-between items-center mb-6'>
-                                  <div className='h-8 w-8 rounded-full bg-accent/20 flex items-center justify-center text-accent'>⚡</div>
-                                  <div className='bg-success/20 text-success px-2 py-0.5 rounded text-xs font-bold'>ACTIVE</div>
-                              </div>
-                              <div className='h-3 w-32 bg-white/20 rounded-full mb-3'></div>
-                              <div className='h-3 w-48 bg-white/20 rounded-full mb-8'></div>
-                              <div className='flex justify-between items-center'>
-                                  <div className='h-6 w-16 bg-white/20 rounded-full'></div>
-                                  <div className='h-8 w-24 bg-primary rounded-xl button-glow'></div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
+          {/* Mobile / Small Screen Banner with Overlay Text */}
+          <div className='block md:hidden relative w-full h-[220px] rounded-2xl overflow-hidden shadow-md border border-purple-100'>
+              <img 
+                  src={bannerMobile} 
+                  alt="Fresh Vegetables and Groceries" 
+                  className='w-full h-full object-cover object-center'
+              />
+              {/* Dark gradient overlay for text readability */}
+              <div className='absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-5 text-left'>
+                  <span className='inline-flex items-center gap-1 bg-primary/95 text-white text-[10px] font-black px-2.5 py-1 rounded-full w-max mb-2 uppercase tracking-wider'>
+                      ⚡ 10 Min Delivery
+                  </span>
+                  <h1 className='text-xl font-black text-white leading-tight mb-1'>
+                      Daily Essentials <br/>
+                      <span className='text-accent'>Delivered Instantly</span>
+                  </h1>
+                  <p className='text-gray-200 text-xs line-clamp-2 mb-3'>
+                      Get fresh groceries and daily household items at your doorstep under 10 minutes.
+                  </p>
+                  <button 
+                      onClick={() => {
+                          const el = document.getElementById("categories-section");
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }} 
+                      className='bg-primary hover:bg-primary-hover text-white text-xs font-bold px-4 py-2 rounded-xl transition-transform active:scale-95 w-max shadow-md shadow-primary/20'
+                  >
+                      Shop Now
+                  </button>
               </div>
           </div>
       </div>

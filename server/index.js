@@ -49,9 +49,9 @@ app.use("/api/order",orderRouter);
 
 connectDB().then(() => {
     app.listen(PORT, () => {
-        console.log(`✅ Server is running at: http://localhost:${PORT}`);
+        console.log(`✅ Ashivo Server is running at: http://localhost:${PORT}`);
     })
-
 })
+
 
 

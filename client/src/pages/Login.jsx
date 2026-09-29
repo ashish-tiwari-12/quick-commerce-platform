@@ -59,21 +59,21 @@ const Login = () => {
                 navigate("/")
             }
 
-
         } catch (error) {
+            if (error?.response?.data?.unverified) {
+                toast.error(error.response.data.message)
+                navigate('/verify-email-otp', {
+                    state: { email: data.email }
+                })
+                return
+            }
             AxiosToastError(error)
         }
-
-
-
     }
     return (
         <section className='w-full min-h-[80vh] flex items-center justify-center px-4 py-8 bg-gradient-to-tr from-primary/5 via-[#F5F3FF] to-[#A78BFA]/10'>
             <div className='bg-white/90 backdrop-blur-md w-full max-w-lg mx-auto rounded-3xl p-8 lg:p-10 shadow-xl border border-purple-100/50'>
                 <div className='text-center mb-6'>
-                    <span className='inline-flex items-center gap-1 bg-primary/10 text-primary text-xs font-extrabold px-3 py-1 rounded-full mb-3 uppercase tracking-wider'>
-                        Fast. Fresh. Instant. ⚡
-                    </span>
                     <h2 className='text-3xl font-black text-secondary tracking-tight font-display mb-1.5'>
                         Welcome to <span className='text-primary'>Ashivo</span>
                     </h2>

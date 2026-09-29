@@ -5,8 +5,28 @@ export const baseURL = import.meta.env.VITE_APP_URL
 
 
 const SummaryApi = {
+    send_registration_otp: {
+        url: '/api/user/send-registration-otp',
+        method: 'post'
+    },
+    verify_registration_otp: {
+        url: '/api/user/verify-registration-otp',
+        method: 'post'
+    },
     register: {
         url: '/api/user/register',
+        method: 'post'
+    },
+    verify_email_otp: {
+        url: '/api/user/verify-email-otp',
+        method: 'post'
+    },
+    resend_email_otp: {
+        url: '/api/user/resend-email-otp',
+        method: 'post'
+    },
+    verifyEmail: {
+        url: '/api/user/verify-email',
         method: 'post'
     },
     login: {

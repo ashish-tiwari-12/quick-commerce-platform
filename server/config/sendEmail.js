@@ -39,16 +39,18 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const sendEmail = async ({ sendTo, subject, html }) => {
+const sendEmail = async ({ sendTo, subject, text, html }) => {
     try {
         const info = await transporter.sendMail({
-            from: `"Binkeyit" <${process.env.EMAIL_USER}>`,
+            from: `"Ashivo" <${process.env.EMAIL_USER}>`,
             to: sendTo,
-            subject,
-            html,
+            replyTo: process.env.EMAIL_USER,
+            subject: subject,
+            text: text || "Your Ashivo verification code is attached.",
+            html: html
         });
 
-        console.log("Email sent:", info.messageId);
+        console.log("Email sent successfully:", info.messageId);
         return info;
     } catch (error) {
         console.error("Email Error:", error);

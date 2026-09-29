@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import logo from '../assets/logo.png'
 import Search from './Search'
 import { Link, useLocation,useNavigate } from 'react-router-dom'
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -63,12 +62,10 @@ const Header = () => {
                 <div className='container mx-auto flex items-center px-4 justify-between'>
                                 {/**logo */}
                                 <div className='h-full flex items-center py-1'>
-                                    <Link to={"/"} className='h-full flex items-center'>
-                                        <img 
-                                            src={logo}
-                                            alt='Ashivo Logo'
-                                            className='h-7 lg:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105'
-                                        />
+                                    <Link to={"/"} className='h-full flex items-center select-none'>
+                                        <span className='text-2xl lg:text-3xl font-black text-secondary tracking-tight font-display transition-transform duration-300 hover:scale-105'>
+                                            Ashivo<span className='text-primary'>.</span>
+                                        </span>
                                     </Link>
                                 </div>
 

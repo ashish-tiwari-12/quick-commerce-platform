@@ -6,7 +6,7 @@ This guide explains your project in simple words and lists the hardest challenge
 
 ## 💡 1. The Project in Simple Words (No Jargon)
 
-Imagine a platform like **Blinkit** or **Instamart** where people can buy groceries and get them delivered fast. This project has two main parts:
+**Ashivo** is a quick-commerce grocery delivery platform where customers can buy daily essentials and groceries with instant 10-minute delivery. This project has two main parts:
 1. **The Client (Frontend - React)**: The website the user sees. It lets them browse items, search, add products to their shopping cart, and type in their address.
 2. **The Server (Backend - Node/Express & Database - MongoDB)**: The brain. It stores the products, manages user accounts, verifies passwords, handles payment checks, and saves order details.
 
